@@ -1,14 +1,14 @@
-import Vue from 'vue'
-import App from './App.vue'
-import Vue2ol from "@gis-js/vue2ol"
-import Vue2olExtend from "@gis-js/vue2ol-extend"
-import "ol/ol.css"
+import Vue from "vue";
+import App from "./App.vue";
 
-Vue.use(Vue2ol);
-Vue.use(Vue2olExtend);
+import router from "./router/index.js";
+import { createPinia } from "pinia";
+const store = createPinia();
 
-Vue.config.productionTip = false
-
+Vue.config.productionTip = false;
+Vue.use(store);
 new Vue({
-  render: function (h) { return h(App) },
-}).$mount('#app')
+  el: "#app",
+  router,
+  render: (h) => h(App),
+});
